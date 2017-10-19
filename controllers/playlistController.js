@@ -9,5 +9,15 @@ router.route('/')
 	  	res.render('playlist/index', {});
 	  });
 
+router.get('/new', (req,res)=>{
+	res.render('playlist/new',{})
+});
+
+router.post('/',(req,res)=>{
+	playlistDB.create(req.body,(err,playlist)=>{
+		res.redirect('/playlists')
+	})
+})
+
 
 module.exports = router;
