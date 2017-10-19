@@ -1,13 +1,13 @@
 body {
-  background-color: #0FA59A;
-  color: #4E403B;
-  font-family: 'Indie Flower', cursive;
+  background-color: #E0E0E0;
+  color: #292929;
+  font-family: 'Titillium Web', sans-serif;
   font-weight: bold;
 }
 body a {
   text-decoration: none;
   font-size: 1.5em;
-  color: #4E403B;
+  color: #292929;
 }
 body a:hover {
   text-decoration: underline;
