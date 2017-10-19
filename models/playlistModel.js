@@ -7,7 +7,7 @@ const PlaylistSchema = new mongoose.Schema({
 	videoId: String,
 	views: Number,
 	type: String,
-	Genre: String
+	genre: String
 });
 
 

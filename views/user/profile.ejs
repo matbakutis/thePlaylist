@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../../partials/head %>
+</head>
+<body>
+	<header>
+		<h1>The Playlist</h1>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/playlists">Playlists</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<!-- <img src=""> -->
+		<div>
+			<h2><%= user.username %></h2><br>
+			<h3><%= user.firstName %> <%= user.lastName %></h3>
+		</div>
+		<div>
+			<h3><%= user.username %>\'s Playlists</h3>
+			<ul>
+				<% user.playlists.forEach((playlist)=>{ %>
+					<li><%= playlist.title %></li>
+					<% if (loggedUsername === user.username){ %>
+						<a href="playlist/edit/<%= playlist._id %>">Edit</a>
+						<a href="playlist/<%= playlist._id %>?_method=DELETE">Delete</a>
+					<% } %>
+				<% }) %>
+			</ul>
+		</div>
+	</main>
+</body>
+</html>
