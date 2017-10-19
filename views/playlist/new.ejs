@@ -4,14 +4,19 @@
 	<% include ../../partials/head %>
 </head>
 <body>
-<form action="/playlists" method="POST">
-	<input type="text" name="title" placeholder="Title"><br>
-	<input type="text" name="url" placeholder="url"><br>
+	<header>
+		<% include ../../partials/header %>
+	</header>
+	<main>
+		<form action="/playlists" method="POST">
+			<input type="text" name="title" placeholder="Title"><br>
+			<input type="text" name="url" placeholder="url"><br>
 
-	<input type="text" name="views" placeholder="Playcount"><br>
-	<input type="text" name="type" placeholder="Type"><br>
-	<input type="text" name="genre" placeholder="Genre"><br>
-	<button>Submit</button>
-</form>
+			<input type="text" name="views" placeholder="Playcount"><br>
+			<input type="text" name="type" placeholder="Type"><br>
+			<input type="text" name="genre" placeholder="Genre"><br>
+			<button>Submit</button>
+		</form>
+	</main>
 </body>
 </html>

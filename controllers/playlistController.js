@@ -14,7 +14,7 @@ router.get('/new', (req,res)=>{
 });
 
 router.post('/',(req,res)=>{
-	playlistDB.create(req.body,(err,playlist)=>{
+	playlistDB.create(req.body, (err,playlist)=>{
 		res.redirect('/playlists')
 	})
 })
