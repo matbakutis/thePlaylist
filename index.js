@@ -26,18 +26,18 @@ app.use( function( req, res, next ) {
 	}
 	next(); 
 });
-// app.use(function (req, res, next) {
-// 	if (req.method === 'DELETE'){
-// 		if (req.session.logged === true) {
-// 			next();
-// 		}else {
-// 			req.session.notLoggedMessage = "you have to log in";
-// 			res.redirect('/');
-// 		};
-// 	}else {
-// 		next();
-// 	}
-// });
+app.use(function (req, res, next) {
+	if (req.method === 'DELETE'){
+		if (req.session.logged === true) {
+			next();
+		}else {
+			req.session.notLoggedMessage = "you have to log in";
+			res.redirect('/');
+		};
+	}else {
+		next();
+	}
+});
 
 
 app.use('/playlist', playlistController);

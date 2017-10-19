@@ -5,21 +5,17 @@
 </head>
 <body>
 	<header>
-		<h1>The Playlist</h1>
-		<nav>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/playlists">Playlists</a></li>
-			</ul>
-		</nav>
+		<% include ../../partials/header %>
 	</header>
 	<main>
-		<form action="/user/signup" method="POST">
-			<input type="text" name="username" placeholder="Username"><br>
-			<input type="text" name="firstName" placeholder="First Name"><br>
-			<input type="text" name="lastName" placeholder="Last Name"><br>
-			<button type="submit">Create</button>
-		</form>
+		<div class="container">
+			<form action="/user/signup" method="POST">
+				<input type="text" name="username" placeholder="Username"><br>
+				<input type="text" name="firstName" placeholder="First Name"><br>
+				<input type="text" name="lastName" placeholder="Last Name"><br>
+				<button type="submit">Create</button>
+			</form>
+		</div>
 	</main>
 </body>
 </html>
