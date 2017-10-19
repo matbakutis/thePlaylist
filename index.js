@@ -40,7 +40,7 @@ app.use( function( req, res, next ) {
 // });
 
 
-app.use('/playlist', playlistController);
+app.use('/playlists', playlistController);
 app.use('/user', userController);
 app.use('/', homeController);
 
