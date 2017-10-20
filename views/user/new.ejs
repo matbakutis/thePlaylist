@@ -9,12 +9,63 @@
 	</header>
 	<main>
 		<div class="container">
-			<form action="/user/signup" method="POST">
-				<input type="text" name="username" placeholder="Username"><br>
-				<input type="text" name="firstName" placeholder="First Name"><br>
-				<input type="text" name="lastName" placeholder="Last Name"><br>
-				<button type="submit">Create</button>
-			</form>
+			<div class="row align-items-center">
+				<div class="col-sm">
+					<div class="card text-center">
+						<div class="card-body">
+							<h2>Sign Up!</h2>
+							<form action="/user/signup" method="POST">
+								<div class="row">
+									<div class="col-md-6 mb-3">
+										<label for="firstName">First name</label>
+										<input type="text" class="form-control" id="firstName" name="firstnName" placeholder="First name" required>
+									</div>
+									<div class="col-md-6 mb-3">
+										<label for="lastName">Last name</label>
+										<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name" required>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col mb-3">
+										<label for="username">Username</label>
+										<input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col mb-3">
+										<label for="password">Password</label>
+										<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+									</div>
+								</div>
+								<button class="btn btn-primary" type="submit">Create</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-1" style="text-align: center">
+					<h1>Or</h1>
+				</div>
+				<div class="col-sm" >
+					<div class="card text-center">
+						<div class="card-body">
+							<h2>Log In!</h2>
+							<form action="/user/login" method="GET">
+								<div class="row">
+									<div class="col-md-6 mb-3">
+										<label for="validationServer01">Username</label>
+										<input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+									</div>
+									<div class="col-md-6 mb-3">
+										<label for="validationServer02">Password</label>
+										<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+									</div>
+								</div>
+								<button class="btn btn-primary" type="submit">Log In</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</main>
 </body>

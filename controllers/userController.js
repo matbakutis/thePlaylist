@@ -3,11 +3,6 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const userDB = require('../models/userModel');
 
-router.route('/')
-	  .get((req, res)=>{
-	  	res.render('user/index', {});
-	  });
-
 router.route('/signup')
 	  .get((req, res)=>{
 	  	res.render('user/new', {});
