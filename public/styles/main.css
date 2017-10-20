@@ -1,6 +1,7 @@
 html,
 body {
-  height: 100vh;
+  height: 100%;
+  background-color: #E0E0E0;
 }
 body {
   background-color: #E0E0E0;
@@ -47,4 +48,7 @@ main {
   flex-shrink: 0;
   padding: 20px;
   text-align: center;
+}
+.footer p {
+  margin: 0;
 }

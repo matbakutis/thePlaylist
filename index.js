@@ -20,7 +20,7 @@ app.use(session({
 	saveUnitialized: false
 }));
 app.use( function( req, res, next ) {
-	if ( req.query._method == 'DELETE' ) {
+	if ( req.query._method === 'DELETE' ) {
 		req.method = 'DELETE';
 		req.url = req.path;
 	}
