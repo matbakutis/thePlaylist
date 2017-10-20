@@ -1,9 +1,15 @@
+html,
+body {
+  height: 100vh;
+}
 body {
   background-color: #E0E0E0;
   color: #292929;
   font-family: 'Titillium Web', sans-serif;
   font-weight: bold;
   padding-top: 70px;
+  display: flex;
+  flex-direction: column;
 }
 .cl-effect-16 a {
   color: #6f8686;
@@ -32,5 +38,13 @@ body {
 }
 div.card {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+  padding: 20px;
   text-align: center;
 }

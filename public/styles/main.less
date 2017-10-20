@@ -2,54 +2,63 @@
 @backgroundColor: #E0E0E0;
 @font: 'Titillium Web', sans-serif;
 
+html, body {
+  height: 100vh;
+}
+
 body {
 	background-color: @backgroundColor;
 	color: @mainColor;
 	font-family: @font;
 	font-weight: bold;
 	padding-top: 70px;
-	// a{
-	// 	text-decoration: none;
-	// 	font-size: 1.5em;
-	// 	color: @mainColor;
-	// }
-	// a:hover{
-	// 	text-decoration: underline;
-	// 	color: black;
-	// }
+	display: flex;
+	flex-direction: column;
 }
 
+// NavBar Nav Links
+	.cl-effect-16 a {
+		color: #6f8686;
+		text-shadow: 0 0 1px rgba(111,134,134,0.3);
+	}
 
-.cl-effect-16 a {
-	color: #6f8686;
-	text-shadow: 0 0 1px rgba(111,134,134,0.3);
+	.cl-effect-16 a::before {
+		color: #fff;
+		content: attr(data-hover);
+		position: absolute;
+		opacity: 0;
+		text-shadow: 0 0 1px rgba(255,255,255,0.3);
+		-webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+		-moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+		transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+		-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+		-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+		transition: transform 0.3s, opacity 0.3s;
+		pointer-events: none;
+	}
+
+	.cl-effect-16 a:hover::before,
+	.cl-effect-16 a:focus::before {
+		-webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+		-moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+		transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+		opacity: 1;
+	}
+
+
+// Log in card shadow
+	div.card {
+		box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+		text-align: center;
+	}
+
+
+main {
+  flex: 1 0 auto;
 }
 
-.cl-effect-16 a::before {
-	color: #fff;
-	content: attr(data-hover);
-	position: absolute;
-	opacity: 0;
-	text-shadow: 0 0 1px rgba(255,255,255,0.3);
-	-webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
-	-moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
-	transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
-	transition: transform 0.3s, opacity 0.3s;
-	pointer-events: none;
-}
-
-.cl-effect-16 a:hover::before,
-.cl-effect-16 a:focus::before {
-	-webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
-	-moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
-	transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
-	opacity: 1;
-}
-
-
-div.card {
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
+.footer {
+	flex-shrink: 0;
+	padding: 20px;
+	text-align: center;
 }
