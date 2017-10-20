@@ -8,14 +8,16 @@
 		<% include ../../partials/header %>
 	</header>
 	<main>
-	<div class="container contentContainer">
-		<!-- <img src=""> -->
-		<div>
-			<h2><%= user.username %></h2><br>
-			<h3><%= user.firstName %> <%= user.lastName %></h3>
+	<div class="container contentContainer" style="display: none;">
+		<div id="profileRow" class="row" style="">
+			<img class="profilePicture" src="<%= user.profilePic %>">
+			<div id="profileBox">
+				<h1 id="profileUsername"><%= user.username %></h1>
+				<h4><%= user.firstName %> <%= user.lastName %></h3>
+			</div>
 		</div>
-		<div>
-			<h3><%= user.username %>\'s Playlists</h3>
+		<div id="profilePlaylistContainer" class="row">
+			<h3><%= user.username %>'s Playlists</h3>
 			<ul>
 				<% user.playlists.forEach((playlist)=>{ %>
 					<li><%= playlist.title %></li>
@@ -25,6 +27,18 @@
 					<% } %>
 				<% }) %>
 			</ul>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
 	</div>
 	</main>

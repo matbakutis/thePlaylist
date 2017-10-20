@@ -8,13 +8,14 @@ router.route('/signup')
 	  	res.render('user/new', {});
 	  })
 	  .post((req, res)=>{
-	  	userDB.create({firstName: req.body.firstName, lastName: req.body.lastName, username: req.body.username}, (err, user)=>{
+	  	userDB.create({firstName: req.body.firstName, lastName: req.body.lastName, username: req.body.username, profilePic: req.body.profilePic}, (err, user)=>{
 	  		if (err) {
 	  			res.send('There was an error creating user.');
 	  		}else {
 	  			req.session.logged = true;
 				req.session.username = user.username;
-				res.redirect('/profile' + user._id);
+				console.log(user.profilePic.length)
+				res.redirect('/user/profile/' + user._id);
 	  		};
 	  	});
 	  });
@@ -24,29 +25,39 @@ router.route('/signup')
 
 router.route('/profile/:id')
 	  .get((req, res)=>{
-	  	userDB.findById(req.params.id, (err, user)=>{});
+	  	userDB.findById(req.params.id, (err, user)=>{
 		  	if (err) {
 		  		res.send('there was an error finding user');
 		  	}else {
-		  		res.render('user/porfile', {user: user});
+		  		res.render('user/profile', {user: user});
 		  	};
+	  	});
 	  })
 
 router.route('/login')
-	  .get((req, res)=>{
+	  .post((req, res)=>{
 	  	userDB.findOne({username: req.body.username}, (err, user)=>{
-	  		if (err) {
-	  			res.send('there was an error finding username');
-	  		}else {
-	  	// 		if (bcrypt.compareSync(req.body.password, user.password) === false) {
-				// 	res.render('user/new', {message: 'Username or Password Incorrect'});
-				// }else if (bcrypt.compareSync(req.body.password, user.password) === true){
-				// 	req.session.logged = true;
-				// 	req.session.username = user.username;
-					res.redirect('/user/profile' + user._id);
-				// };
-	  		};
+	  		if (user) {
+		  		if (err) {
+		  			res.send('there was an error finding username');
+		  		}else {
+		  	// 		if (bcrypt.compareSync(req.body.password, user.password) === false) {
+					// 	req.session.message = 'Username or Password Incorrect';
+					//  res.redirect('/user/signup');
+					// }else if (bcrypt.compareSync(req.body.password, user.password) === true){
+					// 	req.session.logged = true;
+					// 	req.session.username = user.username;
+					//  req.session.message = "";
+						res.redirect('/user/profile/' + user._id);
+					// };
+		  		};
+		  	}else {
+		  		req.session.message = 'Username or Password Incorrect';
+				res.redirect('/user/signup');
+			};
 	  	});
 	  });
+
+
 
 module.exports = router;
