@@ -8,12 +8,30 @@
 		<% include ../../partials/header %>
 	</header>
 	<main>
-		<h2>Create</h2>
+		<a href="/playlists/new"><h2>Create</h2></a>
 		<h2>Browse</h2>
-		<input type="text" name="search" placeholder="Search">
+		<input data-search="" type="text" name="search" placeholder="Search">
+		<%playlists.forEach((playlist) =>{%>
+			<span data-title="<%=playlist.title%>"><%=playlist.title%></span>
+	<%})%>
 	</main>
 	<footer class="footer">
 		<% include ../../partials/footer %>
 	</footer>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+	<script>
+	$("[data-search]").on('change',(e)=>{
+		$("[data-title]").each((el)=>{
+			if($(el).data('title').match(e.target.value)){
+				$(el).show();
+			}else{
+				$(el).hide();
+			}
+		})
+	})
+	</script>	
 </body>
 </html>

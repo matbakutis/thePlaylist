@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../../partials/head %>
+</head>
+<body>
+	<header>
+		<% include ../../partials/header %>
+	</header>
+	  <header>
+    <h1><%= playlist.title %></h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/playlists">Playlist Index</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <form action="/playlists/<%= playlist._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete playlist">
+      </form>
+    </section>
+     <section>
+      <a href="/playlists/<%= playlist._id %>/edit">Edit</a>
+    </section>
+    <section>
+      <h1><%= playlist.title %></h1>
+      <small> by: <a href="/playlists/<%= playlist.id %>"></a></small>
+    </section>
+  </main>
+
+	<footer class="footer">
+		<% include ../../partials/footer %>
+	</footer>
+</body>
+</html>
