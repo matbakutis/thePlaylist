@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../../partials/head %>
+</head>
+<body>
+	<header>
+		<% include ../../partials/header %>
+	</header>
+	<main>
+		<form action="/playlists/<%= playlist._id %>?_method=PUT" method="POST">
+			<input type="text" name="title" placeholder="Title" value="<%=playlist.title%>"><br>
+			<input type="text" name="url" placeholder="url" value="<%=playlist.url%>"><br>
+
+			<input type="text" name="views" placeholder="Playcount" value="<%=playlist.views%>"><br>
+			<input type="text" name="type" placeholder="Type" value="<%=playlist.type%>"><br>
+			<input type="text" name="genre" placeholder="Genre" value="<%=playlist.genre%>"><br>
+			<button>Submit</button>
+		</form>
+	</main>
+	<footer class="footer">
+		<% include ../../partials/footer %>
+	</footer>
+</body>
+</html>
