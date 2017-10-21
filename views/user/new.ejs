@@ -29,6 +29,9 @@
 									<div class="col mb-3">
 										<label for="username">Username</label>
 										<input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+										<% if (session.messageCreate) { %>
+											<span class="errorText"><%= session.messageCreate %></span>
+										<% } %>
 									</div>
 								</div>
 								<div class="row">
@@ -56,6 +59,9 @@
 					<div class="card text-center">
 						<div class="card-body">
 							<h2>Log In!</h2>
+							<% if (session.messageLogIn) { %>
+								<span class="errorText"><%= session.messageLogIn %></span>
+							<% } %>
 							<form action="/user/login" method="POST">
 								<div class="row">
 									<div class="col-md-6 mb-3">

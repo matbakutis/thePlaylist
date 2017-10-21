@@ -56,8 +56,10 @@ main {
   margin: 0;
 }
 #profileRow {
+  max-width: 800px;
   justify-content: space-between;
   height: 150px;
+  margin: auto;
 }
 .profilePicture {
   display: block;
@@ -77,6 +79,10 @@ main {
   font-size: 4.5rem;
 }
 #profilePlaylistContainer {
-  margin-top: 40px;
   max-width: 800px;
+  margin: auto;
+  margin-top: 40px;
+}
+.errorText {
+  color: red;
 }
