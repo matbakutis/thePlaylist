@@ -58,13 +58,14 @@ main {
 #profileRow {
   max-width: 800px;
   justify-content: space-between;
-  height: 150px;
   margin: auto;
 }
 .profilePicture {
   display: block;
   max-width: 150px;
   max-height: 150px;
+  min-width: 150px;
+  min-height: 150px;
   width: auto;
   height: auto;
   border: solid #343a40 5px;

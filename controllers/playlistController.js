@@ -5,15 +5,15 @@ const userDB = require('../models/userModel');
 const playlistDB = require('../models/playlistModel');
 
 router.route('/')
-	  .get((req, res)=>{
-	  	playlistDB.find((err, playlists)=>{
-	  		res.render('playlist/index', {playlists: playlists});
+      .get((req, res)=>{
+	  	  playlistDB.find((err, playlists)=>{
+	  		 res.render('playlist/index', {session: req.session, playlists: playlists});
 	  	})
 	  	
 	  });
 
 router.get('/new', (req,res)=>{
-	res.render('playlist/new',{})
+	res.render('playlist/new',{session: req.session})
 });
 
 router.post('/',(req,res)=>{
@@ -24,14 +24,14 @@ router.post('/',(req,res)=>{
 
 router.get('/:id/edit', (req, res) => {
   playlistDB.findById(req.params.id, (err, playlist) => {
-        res.render('playlist/edit', {playlist: playlist})
+        res.render('playlist/edit', {session: req.session, playlist: playlist})
       });
     });
                                                                                           
 router.route('/:id')
   .get((req, res) => {
     playlistDB.findById(req.params.id, (err, playlist) => {
-        res.render('playlist/show', {playlist: playlist })
+        res.render('playlist/show', {session: req.session, playlist: playlist})
                                                  
       })
     })
@@ -62,5 +62,7 @@ router.route('/:id')
     //   res.redirect('/')
     // }
 
-    })
+    });
+
+
 module.exports = router;

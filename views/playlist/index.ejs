@@ -14,16 +14,12 @@
 		<input data-search="" type="text" name="search" placeholder="Search">
 		<%playlists.forEach((playlist) =>{%>
 			<span data-title="<%=playlist.title%>"><%=playlist.title%></span>
-	<%})%>="text" name="search" placeholder="Search">
+		<%})%>
 	</div>
 	</main>
 	<footer class="footer">
 		<% include ../../partials/footer %>
 	</footer>
-	<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
 	<script>
 	$("[data-search]").on('change',(e)=>{
 		$("[data-title]").each((el)=>{
