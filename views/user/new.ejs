@@ -7,8 +7,8 @@
 	<header>
 		<% include ../../partials/header %>
 	</header>
-	<main>
-		<div class="container">
+	<main style="display: flex; align-items: center;">
+		<div class="container contentContainer" style="display: none;">
 			<div class="row align-items-center">
 				<div class="col-sm">
 					<div class="card text-center">
@@ -18,7 +18,7 @@
 								<div class="row">
 									<div class="col-md-6 mb-3">
 										<label for="firstName">First name</label>
-										<input type="text" class="form-control" id="firstName" name="firstnName" placeholder="First name" required>
+										<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name" required>
 									</div>
 									<div class="col-md-6 mb-3">
 										<label for="lastName">Last name</label>
@@ -29,12 +29,22 @@
 									<div class="col mb-3">
 										<label for="username">Username</label>
 										<input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+										<% if (session.messageCreate) { %>
+											<span class="errorText"><%= session.messageCreate %></span>
+										<% } %>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col mb-3">
 										<label for="password">Password</label>
 										<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col mb-3">
+										<label for="profilePicRaw">Upload Profile Picture</label>
+										<input type="file" class="form-control" id="profilePicRaw" name="profilePicRaw" accept="image/*" onchange="openFile(event)">
+										<input type="text" class="form-control" id="profilePic" name="profilePic" style="display: none;">
 									</div>
 								</div>
 								<button class="btn btn-primary" type="submit">Create</button>
@@ -49,7 +59,10 @@
 					<div class="card text-center">
 						<div class="card-body">
 							<h2>Log In!</h2>
-							<form action="/user/login" method="GET">
+							<% if (session.messageLogIn) { %>
+								<span class="errorText"><%= session.messageLogIn %></span>
+							<% } %>
+							<form action="/user/login" method="POST">
 								<div class="row">
 									<div class="col-md-6 mb-3">
 										<label for="validationServer01">Username</label>
@@ -71,5 +84,18 @@
 	<footer class="footer">
 		<% include ../../partials/footer %>
 	</footer>
+	<script>
+	  var openFile = function(event) {
+	    var input = event.target;
+	    var reader = new FileReader();
+	    reader.onload = function(){
+	      var dataURL = reader.result;
+	      var output = document.getElementById('profilePic');
+	      output.value = dataURL;
+	    };
+	    reader.readAsDataURL(input.files[0]);
+	  };
+	</script>
+
 </body>
 </html>

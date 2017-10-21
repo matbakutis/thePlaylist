@@ -1,15 +1,19 @@
 html,
 body {
-  height: 100vh;
+  height: 100%;
+  background-color: #E0E0E0;
 }
 body {
   background-color: #E0E0E0;
-  color: #292929;
+  color: #343a40;
   font-family: 'Titillium Web', sans-serif;
   font-weight: bold;
   padding-top: 70px;
   display: flex;
   flex-direction: column;
+}
+.container {
+  display: flex;
 }
 .cl-effect-16 a {
   color: #6f8686;
@@ -47,4 +51,38 @@ main {
   flex-shrink: 0;
   padding: 20px;
   text-align: center;
+}
+.footer p {
+  margin: 0;
+}
+#profileRow {
+  max-width: 800px;
+  justify-content: space-between;
+  height: 150px;
+  margin: auto;
+}
+.profilePicture {
+  display: block;
+  max-width: 150px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  border: solid #343a40 5px;
+  border-radius: 50%;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+}
+#profileBox {
+  align-self: center;
+  text-align: right;
+}
+#profileUsername {
+  font-size: 4.5rem;
+}
+#profilePlaylistContainer {
+  max-width: 800px;
+  margin: auto;
+  margin-top: 40px;
+}
+.errorText {
+  color: red;
 }

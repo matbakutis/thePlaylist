@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 router.route('/')
 	  .get((req, res)=>{
-	  	res.render('index', {});
+	  	res.render('index', {session: req.session});
 	  });
 
 

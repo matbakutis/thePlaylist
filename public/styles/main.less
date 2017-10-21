@@ -1,9 +1,10 @@
-@mainColor: #292929;
+@mainColor: #343a40;
 @backgroundColor: #E0E0E0;
 @font: 'Titillium Web', sans-serif;
 
 html, body {
-  height: 100vh;
+  height: 100%;
+  background-color: @backgroundColor;
 }
 
 body {
@@ -14,6 +15,10 @@ body {
 	padding-top: 70px;
 	display: flex;
 	flex-direction: column;
+}
+
+.container {
+	display: flex;
 }
 
 // NavBar Nav Links
@@ -54,11 +59,56 @@ body {
 
 
 main {
-  flex: 1 0 auto;
+	flex: 1 0 auto;
 }
 
 .footer {
 	flex-shrink: 0;
 	padding: 20px;
 	text-align: center;
+	p {
+		margin: 0;
+	}
 }
+
+// Profile Page
+	#profileRow {
+		max-width: 800px;
+		justify-content: space-between;
+		height: 150px;
+		margin: auto;
+	}
+
+	.profilePicture {
+		display: block;
+		max-width:150px;
+		max-height:150px;
+		width: auto;
+		height: auto;
+		border: solid @mainColor 5px;
+		border-radius: 50%;
+		box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2)
+		, 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+	}
+
+	#profileBox {
+		align-self: center;
+		text-align: right;
+	}
+
+	#profileUsername {
+		font-size: 4.5rem;
+	}
+
+	#profilePlaylistContainer {
+		max-width: 800px;
+		margin: auto;
+		margin-top: 40px;
+	}
+
+.errorText {
+	color: red;
+}
+
+
+

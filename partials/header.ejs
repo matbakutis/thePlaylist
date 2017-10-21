@@ -5,10 +5,15 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse justify-content-end cl-effect-16" id="navbarNav">
-			<a class="nav-item nav-link" href="/" data-hover="Home">Home</a>
-			<a class="nav-item nav-link" href="/playlists" data-hover="Playlists">Playlists</a>
-			<a class="nav-item nav-link" href="/user/signup" data-hover="Profile">Profile</a>
-			<a class="nav-item nav-link" href="/playlist/create" data-hover="Create">Create</a>
+			<a class="nav-item nav-link transition" href="/" data-hover="Home">Home</a>
+			<a class="nav-item nav-link transition" href="/playlist" data-hover="Playlists">Playlists</a>
+			<a class="nav-item nav-link transition" href="/user/profile" data-hover="Profile">Profile</a>
+			<a class="nav-item nav-link transition" href="/playlist/create" data-hover="Create">Create</a>
+			<% if (session.logged) { %>
+				<a class="nav-item nav-link transition" href="/user/signout" data-hover="Sign Out">Sign Out</a>
+			<% }else { %>
+				<a class="nav-item nav-link transition" href="/user/signup" data-hover="Sign In">Sign In</a>
+			<% } %>
 		</div>
 	</nav>
 </div>
