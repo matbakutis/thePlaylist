@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../../partials/head %>
+</head>
+<body>
+	<header>
+		<% include ../../partials/header %>
+	</header>
+	<main style="display: flex; align-items: center;">
+		<div class="container contentContainer" style="display: none;">
+			<div class="row align-items-center">
+				<div class="col-sm-4">
+			
+					
+				</div>
+				<div class="col-sm-8" >
+					<h1>Search</h1>
+					<div id="searchDiv">
+						<form>
+							<input type="text" name="searchText" id="searchText">
+							<button id="searchButton" type="submit">Search</button>
+						</form>
+					</div>
+					<div id="results">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="footer">
+		<% include ../../partials/footer %>
+	</footer>
+	<script type="text/javascript" src="/js/youtubeSearch.js"></script>
+</body>
+</html>

@@ -4,13 +4,26 @@ const bcrypt = require('bcrypt');
 const userDB = require('../models/userModel');
 const playlistDB = require('../models/playlistModel');
 
+const search = require('youtube-search');
+ 
+const opts = {
+  maxResults: 25,
+  key: process.env.API_KEY};
+ 
+
+
 router.route('/')
       .get((req, res)=>{
 	  	  playlistDB.find((err, playlists)=>{
-	  		 res.render('playlist/index', {session: req.session, playlists: playlists});
+          res.render('playlist/index', {session: req.session, playlists: playlists});
 	  	})
 	  	
 	  });
+
+router.route('/add')
+      .get((req, res)=>{
+        res.render('playlist/add', {session: req.session});
+      });
 
 router.get('/new', (req,res)=>{
 	res.render('playlist/new',{session: req.session})
@@ -64,5 +77,13 @@ router.route('/:id')
 
     });
 
+
+
+router.route('/youtube/search/:id')
+      .get((req, res)=>{
+          search(req.params.id, opts, function(err, results) {
+            res.json(results);
+          });
+      });
 
 module.exports = router;

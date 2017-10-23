@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionString = 'mongodb://localhost/thePlaylist';
+const connectionString = process.env.DB_HOST;
 
 mongoose.connect(connectionString);
 
