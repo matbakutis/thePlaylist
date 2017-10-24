@@ -87,3 +87,20 @@ main {
 .errorText {
   color: red;
 }
+.thumbnail {
+  max-width: 160px;
+  max-height: 80px;
+  min-width: 160px;
+  min-height: 80px;
+}
+.result {
+  display: flex;
+  height: 90px;
+}
+.resultText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 5px;
+  overflow: hidden;
+}

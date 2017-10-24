@@ -18,11 +18,12 @@ const ajaxCall = (searchText) => {
 				};
 			};
 			for (let i = 0; i < resultsArray.length; i++) {
-				const theDiv = $('<div>');
+				const theDiv = $('<div class="result">');
 				theDiv.append($('<img class="thumbnail" src="' + resultsArray[i].thumbnails.medium.url + '">'));
-				theDiv.append($('<h3>' + resultsArray[i].title + '</h3>'));
-				theDiv.append($('<h5>' + resultsArray[i].channelTitle + '</h5>'));
-				$('#results').append(theDiv);
+				const wordDiv = $('<div class="resultText">');
+				wordDiv.append($('<h4>' + resultsArray[i].title + '</h3>'));
+				wordDiv.append($('<h6>' + resultsArray[i].channelTitle + '</h5>'));
+				$('#results').append(theDiv.append(wordDiv));
 			};
 		},
 		error: (err) => {

@@ -7,18 +7,38 @@
 	<header>
 		<% include ../../partials/header %>
 	</header>
-	<main>
-		<div class="container contentContainer" style="display: none;"> 
-		<form action="/playlists" method="POST">
-			<input type="text" name="title" placeholder="Title"><br>
-			<input type="text" name="url" placeholder="url"><br>
-
-			<input type="text" name="views" placeholder="Playcount"><br>
-			<input type="text" name="type" placeholder="Type"><br>
-			<input type="text" name="genre" placeholder="Genre"><br>
-			<button>Submit</button>
-		</form>
-	</div>
+	<main style="display: flex; align-items: center;">
+		<div class="container contentContainer" style="display: none; max-width: 850px;"> 
+			<div class="card text-center">
+				<div class="card-body">
+				<h2>Create new Playlist!</h2>
+					<form action="/playlists/new" method="POST">
+						<div class="mb-3">
+							<label for="title">Title</label>
+							<input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+						</div>
+						<div class="mb-3">
+							<label for="type">Type</label>
+							<select class="custom-select form-control" name="type" required>
+								<option value="bizzare">Bizzare</option>
+								<option value="comedy">Comedy</option>
+								<option value="cooking">Cooking</option>
+								<option value="cute">Cute</option>
+								<option value="documentary">Documentary</option>
+								<option value="educational">Educational</option>
+								<option value="music" selected>Music</option>
+								<option value="reviews">Reviews</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="title">Genre</label>
+							<input type="text" class="form-control" id="genre" name="genre" placeholder="Genre If Applicable">
+						</div>
+						<button class="btn btn-primary" type="submit">Create</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</main>
 	<footer class="footer">
 		<% include ../../partials/footer %>
