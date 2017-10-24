@@ -33,6 +33,16 @@
       <h1><%= playlist.title %></h1>
       <small> by: <a href="/playlists/<%= playlist.id %>"></a></small>
     </section>
+    <% if (playlist.videoIds) { %>
+      <iframe width="640" height="360" src="http://www.youtube.com/v/<%= playlist.videoIds[0] %>?version=3&loop=1&$autoplay=1
+        <% if (playlist.videoIds > 1){ %>
+          &playlist=
+          <% } %>
+          <% for (let i = 1; i < playlist.videoIds.length; i++){ %>
+            <%= playlist.videoIds[i] %>,
+          <% } %>" frameborder="0" allowfullscreen></iframe>
+    <% } %>
+
   </main>
 
 	<footer class="footer">
@@ -41,4 +51,19 @@
 </body>
 </html>
 
-<iframe width="640" height="360" src="http://www.youtube.com/v/PRIMARYVIDEO_ID?version=3&loop=1&$autoplay=1&playlist=VIDEO_ID1,VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

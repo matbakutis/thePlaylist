@@ -22,8 +22,8 @@
 				<% user.playlists.forEach((playlist)=>{ %>
 					<li><%= playlist.title %></li>
 					<% if (session.username === user.username){ %>
-						<a href="playlist/edit/<%= playlist._id %>">Edit</a>
-						<a href="playlist/<%= playlist._id %>?_method=DELETE">Delete</a>
+						<a href="/playlists/add/<%= playlist._id %>">Edit</a>
+						<a href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
 					<% } %>
 				<% }) %>
 			</ul>
