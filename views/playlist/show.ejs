@@ -7,32 +7,10 @@
 	<header>
 		<% include ../../partials/header %>
 	</header>
-	  <header>
-    <h1 class="playlist_title"><%= playlist.title %></h1>
-    <!-- <nav>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/playlists">Playlist Index</a>
-        </li>
-      </ul>
-    </nav> -->
-  </header>
   <main>
-    <section>
-      <form action="/playlists/<%= playlist._id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete playlist">
-      </form>
-    </section>
-     <section>
-      <a href="/playlists/<%= playlist._id %>/edit">Edit</a>
-    </section>
-    <section>
-    <!--   <h1><%= playlist.title %></h1>
-      <small> by: <a href="/playlists/<%= playlist.id %>"></a></small>
-    </section> -->
+    <div class="container contentContainer" style="display: none;">
+    <h1 class="playlist_title"><%= playlist.title %></h1>
+
     <% if (playlist.videoIds) { %>
       <iframe width="640" height="360" src="http://www.youtube.com/v/<%= playlist.videoIds[0] %>?version=3&loop=1&$autoplay=1
         <% if (playlist.videoIds > 1){ %>
@@ -42,7 +20,7 @@
             <%= playlist.videoIds[i] %>,
           <% } %>" frameborder="0" allowfullscreen></iframe>
     <% } %>
-
+  </div>
   </main>
 
 	<footer class="footer">
