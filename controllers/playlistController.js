@@ -69,4 +69,15 @@ router.route('/youtube/search/:id')
 		});
 	  });
 
+router.route('/:id')
+		.get((req,res)=>{
+		playlistDB.findById(req.params.id, (err, playlist)=>{	
+			if(err){
+				res.send('Error showing playlist')
+			}else{
+				res.render('playlist/show', {session: req.session, playlist: playlist})
+			}
+		})
+	})
+
 module.exports = router;

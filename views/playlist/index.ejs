@@ -13,7 +13,7 @@
 		<h2>Browse</h2>
 		<input data-search="" type="text" name="search" placeholder="Search">
 		<%playlists.forEach((playlist) =>{%>
-			<span data-title="<%=playlist.title%>"><%=playlist.title%></span>
+			<a href="/playlists/<%= playlist._id %>" data-title="<%=playlist.title%>"><%=playlist.title%></a>
 		<%})%>
 	</div>
 	</main>

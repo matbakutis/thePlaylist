@@ -8,8 +8,8 @@
 		<% include ../../partials/header %>
 	</header>
 	  <header>
-    <h1><%= playlist.title %></h1>
-    <nav>
+    <h1 class="playlist_title"><%= playlist.title %></h1>
+    <!-- <nav>
       <ul>
         <li>
           <a href="/">Home</a>
@@ -18,7 +18,7 @@
           <a href="/playlists">Playlist Index</a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
   </header>
   <main>
     <section>
@@ -30,9 +30,9 @@
       <a href="/playlists/<%= playlist._id %>/edit">Edit</a>
     </section>
     <section>
-      <h1><%= playlist.title %></h1>
+    <!--   <h1><%= playlist.title %></h1>
       <small> by: <a href="/playlists/<%= playlist.id %>"></a></small>
-    </section>
+    </section> -->
     <% if (playlist.videoIds) { %>
       <iframe width="640" height="360" src="http://www.youtube.com/v/<%= playlist.videoIds[0] %>?version=3&loop=1&$autoplay=1
         <% if (playlist.videoIds > 1){ %>
