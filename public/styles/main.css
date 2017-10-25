@@ -161,7 +161,8 @@ main {
 }
 .result {
   display: flex;
-  height: 90px;
+  height: 80px;
+  margin-top: 10px;
 }
 .resultText {
   display: flex;
@@ -169,4 +170,28 @@ main {
   justify-content: space-between;
   margin-left: 5px;
   overflow: hidden;
+}
+.resultText h6 {
+  font-size: 1.25em;
+  margin: 0;
+}
+.resultText p {
+  font-size: .5em;
+  font-weight: normal;
+  margin: 0;
+}
+.addPage {
+  height: 75vh;
+}
+.resultsAndVideos {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: inherit;
+}
+#title {
+  font-size: 2rem;
+  text-align: center;
+}
+#videos {
+  height: 65vh;
 }

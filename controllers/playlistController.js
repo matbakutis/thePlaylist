@@ -12,6 +12,28 @@ const opts = {
 
 
 
+router.route('/save/:id')
+	  .post((req, res)=>{
+	  	userDB.findById(req.session.userId, (err, user)=>{
+	  		if (err) {
+				res.send('Error finding user')
+		  	}else {
+		  		playlistDB.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, playlist)=>{
+		  			if (err) {
+		  				res.send('Error creating playlist');
+		  			}else {
+		  				user.playlists.id(req.params.id).remove();
+		  				user.playlists.push(playlist);
+		  				user.save((err, data)=>{
+		  					res.send('hi');
+		  				});
+		  			};
+		  		});
+		  	};
+	  	});
+	  })
+
+
 router.route('/')
 	  .get((req, res)=>{
 		playlistDB.find((err, playlists)=>{
@@ -45,6 +67,13 @@ router.route('/new')
 		  	};
 	  	});
 	  })
+
+
+
+router.post('/savemeplease', (req, res) => {
+	console.log(req.body)
+	res.send('hi')
+})
 
 router.route('/add/:id')
 	  .get((req, res)=>{

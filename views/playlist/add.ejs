@@ -7,24 +7,26 @@
 	<header>
 		<% include ../../partials/header %>
 	</header>
-	<main style="display: flex; align-items: center;">
+	<main style="display: flex;">
 		<div class="container contentContainer" style="display: none;">
 			<div class="row align-items-center">
-				<div class="col-sm-5">
-			
-					
-				</div>
-				<div class="col-sm-7" >
-					<h1>Search</h1>
+				<div class="col-sm-6 addPage" >
 					<div id="searchDiv">
 						<form>
-							<input type="text" name="searchText" id="searchText">
-							<button id="searchButton" type="submit">Search</button>
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search for..." name="searchText" id="searchText">
+								<span class="input-group-btn">
+									<button class="btn btn-secondary" id="searchButton" type="submit">Search!</button>
+								</span>
+							</div>
 						</form>
 					</div>
-					<div id="results">
-						
-					</div>
+					<div id="results"  class="resultsAndVideos"></div>
+				</div>
+				<div class="col-sm-6 addPage">
+					<div id="title" contenteditable data-id="<%= playlist._id %>"><%= playlist.title %></div>
+					<div id="videos" class="resultsAndVideos"></div>
+					<button id="saveButton" type="button" class="btn btn-primary btn-lg btn-block">Save</button>
 				</div>
 			</div>
 		</div>
@@ -32,6 +34,7 @@
 	<footer class="footer">
 		<% include ../../partials/footer %>
 	</footer>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="/js/youtubeSearch.js"></script>
 </body>
 </html>
