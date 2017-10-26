@@ -25,7 +25,7 @@ router.route('/save/:id')
 		  				user.playlists.id(req.params.id).remove();
 		  				user.playlists.push(playlist);
 		  				user.save((err, data)=>{
-		  					res.send('hi');
+		  					res.send(req.params.id);
 		  				});
 		  			};
 		  		});
@@ -69,12 +69,6 @@ router.route('/new')
 	  })
 
 
-
-router.post('/savemeplease', (req, res) => {
-	console.log(req.body)
-	res.send('hi')
-})
-
 router.route('/add/:id')
 	  .get((req, res)=>{
 	  	playlistDB.findById(req.params.id, (err, playlist)=>{
@@ -84,9 +78,6 @@ router.route('/add/:id')
 	  			res.render('playlist/add', {session: req.session, playlist: playlist});
 	  		};
 	  	});
-	  })
-	  .put((req, res)=>{
-
 	  })
 
 
@@ -98,7 +89,20 @@ router.route('/youtube/search/:id')
 		});
 	  });
 
+router.route('/getplaylist/:id')
+	  .get((req, res)=>{
+		playlistDB.findById(req.params.id, (err, playlist)=>{
+	  		if (err) {
+	  			res.send('Error finding playlist');
+	  		}else {
+	  			res.json(playlist.videoIds);
+	  		};
+	  	});
+	  });
+
+
 router.route('/:id')
+
 		.get((req,res)=>{
 		playlistDB.findById(req.params.id, (err, playlist)=>{
 		userDB.findOne({'playlists._id': req.params.id}, (err, user)=>{

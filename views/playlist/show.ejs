@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<% include ../../partials/head %>
-</head>
-<body>
-	<header>
-		<% include ../../partials/header %>
-	</header>
-  <main>
-    <div class="container contentContainer" style="display: none;">
-    <h1 class="playlist_title"><%= playlist.title %></h1>
+	<head>
+		<% include ../../partials/head %>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js" integrity="sha256-/IeNFU9g1Tnj9pOKq3jGgIU2/kiKS+t1Q7pwym7mpoA=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/js/pageTransitions.js"></script>
+	</head>
+	<body>
+		<header>
+			<% include ../../partials/header %>
+		</header>
+		<main>
+			<div class="container contentContainer" style="display: none;">
+				<h1 class="playlist_title"><%= playlist.title %></h1>
      <h5 class="playlist_title" > <%= user.username %></h5>
      <div class="playlist_title">
-    <% if (playlist.videoIds) { %>
-      <iframe  width="640" height="360" src="http://www.youtube.com/v/<%= playlist.videoIds[0] %>?version=3&loop=1&$autoplay=1
-        <% if (playlist.videoIds > 1){ %>
-          &playlist=
-          <% } %>
-          <% for (let i = 1; i < playlist.videoIds.length; i++){ %>
-            <%= playlist.videoIds[i] %>,
-          <% } %>" frameborder="0" allowfullscreen></iframe>
-          <%=playlist.views%>
-    <% } %>
-  </div>
-  </div>
-  <form action="/playlists" method="GET">
+
+				<% if (playlist.videoIds) { %>
+				<iframe width="640" height="360" src="http://www.youtube.com/embed/<%= playlist.videoIds[0] %>?loop=1&$autoplay=1<% if (playlist.videoIds.length > 1){ %>&playlist=<% } %><% for (let i = 1; i < playlist.videoIds.length; i++){ %><%= playlist.videoIds[i] %>,<% } %>" frameborder="0" allowfullscreen><% } %>
+			</div>
+    </div>
+    <form action="/playlists" method="GET">
     <button type="submit" class="btn btn-primary">Back</button>
   </form>
-  </main>
-
-	<footer class="footer">
-		<% include ../../partials/footer %>
-	</footer>
-</body>
+		</main>
+	</body>
 </html>
 
 
