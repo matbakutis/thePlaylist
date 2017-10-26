@@ -199,9 +199,49 @@ main {
   text-align: center;
   margin: 20px 20px 20px 20px;
 }
-.btn-primary {
-  margin: 40px;
-}
 .playlist_links {
   margin: 10px;
+}
+.category-list {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 45vh;
+}
+.category-list .category {
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  flex: 1 0 10em;
+  box-shadow: 0 0 30px #343a40;
+  overflow: hidden;
+  padding: 1em;
+  color: white;
+  transition: flex-basis 500ms ease-in-out;
+}
+.category-list .category:hover {
+  flex-basis: 30em;
+}
+.category-list .category:hover .playlist-list {
+  opacity: 1;
+}
+.category-list .category-name {
+  font-size: 2em;
+  font-weight: 600;
+  text-shadow: 2px 2px 8px #343a40;
+}
+.category-list .playlist-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  overflow: scroll;
+}
+.category-list .playlist-list a {
+  font-size: 1em;
+  line-height: 2em;
+  color: #E0E0E0;
+  text-shadow: 2px 2px 8px #343a40, -1px -1px 0 #343a40, 1px -1px 0 #343a40, -1px 1px 0 #343a40, 1px 1px 0 #343a40;
 }
