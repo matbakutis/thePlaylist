@@ -207,13 +207,67 @@ main {
 }
 
 
-.btn-primary{
-	margin: 40px;
-}
 .playlist_links{
 	margin: 10px;
 }
+
 #button_flip {
 	display: flex;
 	flex-direction: column-reverse;
 }
+
+.category-list {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 45vh;
+  .category {
+    display: flex;
+    flex-direction: column;
+
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+
+    flex: 1 0 10em;  
+    box-shadow: 0 0 30px @mainColor;
+
+    overflow: hidden;
+    padding: 1em;
+    color: white;
+    transition: flex-basis 500ms ease-in-out;
+  }
+
+  .category:hover {
+    flex-basis: 30em;
+  }
+
+  .category:hover .playlist-list {
+    opacity: 1;
+  }
+
+  .category-name {
+      font-size: 2em;
+      font-weight: 600;
+      text-shadow: 2px 2px 8px @mainColor;
+    }
+
+  .playlist-list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      opacity: 0;
+      transition: opacity 500ms ease-in-out;
+      overflow: scroll;
+      a {
+        font-size: 1em;
+        line-height: 2em;
+        color: @backgroundColor;
+        text-shadow: 2px 2px 8px @mainColor,
+					-1px -1px 0 @mainColor,  
+					1px -1px 0 @mainColor,
+					-1px  1px 0 @mainColor,
+					1px  1px 0 @mainColor;
+   		}
+   } 
+}
+

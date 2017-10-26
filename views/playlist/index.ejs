@@ -3,33 +3,105 @@
 <head>
 	<% include ../../partials/head %>
 </head>
-<body>
+<body style="padding-top: 55px;">
 	<header>
 		<% include ../../partials/header %>
 	</header>
-	<main>
-	<div class="container contentContainer" style="display: none;">
-		<a href="/playlists/new"><h2>Create</h2></a>
-		<h2>Browse</h2>
-		<input data-search="" type="text" name="search" placeholder="Search">
-		<%playlists.forEach((playlist) =>{%>
-			<a href="/playlists/<%= playlist._id %>" data-title="<%=playlist.title%>"><%=playlist.title%><br></a>
-		<%})%>
-	</div>
+	<main class="contentContainer">
+			<div class="category-list">
+
+			<section class="category" style="background-image: url('/images/comedy.jpg');">
+				<h2 class="category-name">Comedy</h2>
+				<ul class="playlist-list">
+					<% playlists.forEach((playlist)=>{ %>
+						<% if (playlist.type === "comedy") { %>
+							<li><a href="/playlists/<%= playlist._id %>"><%= playlist.title %></a></li>
+						<% } %>
+					<% }) %>
+				</ul>
+			</section>
+
+			<section class="category" style="background-image: url('/images/concert.jpg');">
+				<h2 class="category-name">Music</h2>
+				<ul class="playlist-list">
+					<% playlists.forEach((playlist)=>{ %>
+						<% if (playlist.type === "music") { %>
+							<li><a href="/playlists/<%= playlist._id %>"><%= playlist.title %></a></li>
+						<% } %>
+					<% }) %>
+				</ul>
+			</section>
+
+			<section class="category" style="background-image: url('/images/educational.jpg');">
+				<h2 class="category-name">Educational</h2>
+				<ul class="playlist-list">
+					<% playlists.forEach((playlist)=>{ %>
+						<% if (playlist.type === "educational") { %>
+							<li><a href="/playlists/<%= playlist._id %>"><%= playlist.title %></a></li>
+						<% } %>
+					<% }) %>
+				</ul>
+			</section>
+			<section class="category" style="background-image: url('/images/cute.jpg');">
+				<h2 class="category-name">Cute</h2>
+				<ul class="playlist-list">
+					<% playlists.forEach((playlist)=>{ %>
+						<% if (playlist.type === "cute") { %>
+							<li><a href="/playlists/<%= playlist._id %>"><%= playlist.title %></a></li>
+						<% } %>
+					<% }) %>
+				</ul>
+			</section>
+		</div>
+		<div class="category-list">
+			<section class="category" style="background-image: url('/images/bizarre.png');">
+				<h2 class="category-name">Bizarre</h2>
+				<ul class="playlist-list">
+					<% playlists.forEach((playlist)=>{ %>
+						<% if (playlist.type === "bizarre") { %>
+							<li><a href="/playlists/<%= playlist._id %>"><%= playlist.title %></a></li>
+						<% } %>
+					<% }) %>
+				</ul>
+			</section>
+
+			<section class="category" style="background-image: url('/images/cooking.jpg');">
+				<h2 class="category-name">Cooking</h2>
+				<ul class="playlist-list">
+					<% playlists.forEach((playlist)=>{ %>
+						<% if (playlist.type === "cooking") { %>
+							<li><a href="/playlists/<%= playlist._id %>"><%= playlist.title %></a></li>
+						<% } %>
+					<% }) %>
+				</ul>
+			</section>
+
+			<section class="category" style="background-image: url('/images/reviews.png');">
+				<h2 class="category-name">Reviews</h2>
+				<ul class="playlist-list">
+					<% playlists.forEach((playlist)=>{ %>
+						<% if (playlist.type === "reviews") { %>
+							<li><a href="/playlists/<%= playlist._id %>"><%= playlist.title %></a></li>
+						<% } %>
+					<% }) %>
+				</ul>
+			</section>
+
+			<section class="category" style="background-image: url('/images/documentary.jpg');">
+				<h2 class="category-name">Documentaries</h2>
+				<ul class="playlist-list">
+					<% playlists.forEach((playlist)=>{ %>
+						<% if (playlist.type === "documentary") { %>
+							<li><a href="/playlists/<%= playlist._id %>"><%= playlist.title %></a></li>
+						<% } %>
+					<% }) %>
+				</ul>
+			</section>
+			</div>
+
 	</main>
 	<footer class="footer">
 		<% include ../../partials/footer %>
 	</footer>
-	<script>
-	$("[data-search]").on('change',(e)=>{
-		$("[data-title]").each((el)=>{
-			if($(el).data('title').match(e.target.value)){
-				$(el).show();
-			}else{
-				$(el).hide();
-			}
-		})
-	})
-	</script>	
 </body>
 </html>
