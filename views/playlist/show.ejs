@@ -6,7 +6,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js" integrity="sha256-/IeNFU9g1Tnj9pOKq3jGgIU2/kiKS+t1Q7pwym7mpoA=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="/js/pageTransitions.js"></script>
+		<script type="text/javascript" src="/js/pageTransitions-minified.js"></script>
 	</head>
 	<body>
 		<header>
@@ -24,7 +24,7 @@
     </div>
       <div>
 				<% if (playlist.videoIds) { %>
-				<iframe width="640" height="360" src="http://www.youtube.com/embed/<%= playlist.videoIds[0] %>?loop=1&$autoplay=1<% if (playlist.videoIds.length > 1){ %>&playlist=<% } %><% for (let i = 1; i < playlist.videoIds.length; i++){ %><%= playlist.videoIds[i] %>,<% } %>" frameborder="0" allowfullscreen><% } %>
+				<iframe width="640" height="360" src="https://www.youtube.com/embed/<%= playlist.videoIds[0] %>?loop=1&$autoplay=1<% if (playlist.videoIds.length > 1){ %>&playlist=<% } %><% for (let i = 1; i < playlist.videoIds.length; i++){ %><%= playlist.videoIds[i] %>,<% } %>" frameborder="0" allowfullscreen><% } %>
         </div>
 			</div>
     </div>
