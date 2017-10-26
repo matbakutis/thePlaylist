@@ -37,7 +37,7 @@ router.route('/save/:id')
 router.route('/')
 	  .get((req, res)=>{
 		playlistDB.find((err, playlists)=>{
-			res.render('playlist/index', {session: req.session, playlists: playlists});
+				res.render('playlist/index', { playlists: playlists, session: req.session});
 		})
 	  });
 
@@ -100,12 +100,14 @@ router.route('/youtube/search/:id')
 
 router.route('/:id')
 		.get((req,res)=>{
-		playlistDB.findById(req.params.id, (err, playlist)=>{	
-			if(err){
-				res.send('Error showing playlist')
-			}else{
-				res.render('playlist/show', {session: req.session, playlist: playlist})
-			}
+		playlistDB.findById(req.params.id, (err, playlist)=>{
+		userDB.findOne({'playlists._id': req.params.id}, (err, user)=>{
+				if(err){
+					res.send('Error showing playlist')
+				}else{
+					res.render('playlist/show', {user: user, session: req.session, playlist: playlist})
+				}
+			})
 		})
 	})
 
