@@ -45,8 +45,8 @@ app.use('/playlists', playlistController);
 app.use('/user', userController);
 app.use('/', homeController);
 
+const port = process.env.PORT || 3000;
 
-
-app.listen(3000, ()=>{
-	console.log("port 3000 reporting for duty");
+app.listen(port, ()=>{
+	console.log("listening");
 });
