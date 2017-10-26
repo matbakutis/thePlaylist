@@ -9,7 +9,7 @@ $('#searchButton').click((e)=>{
 
 const ajaxSearchCall = (searchText) => {
 	$.ajax({
-		url: "http://localhost:3000/playlists/youtube/search/" + searchText,
+		url: "/playlists/youtube/search/" + searchText,
 		type: 'GET',
 		dataType: 'Json',
 		success: (res) => {
@@ -37,7 +37,7 @@ const ajaxSearchCall = (searchText) => {
 
 const ajaxOldSearchCall = (searchText) => {
 	$.ajax({
-		url: "http://localhost:3000/playlists/youtube/search/" + searchText,
+		url: "/playlists/youtube/search/" + searchText,
 		type: 'GET',
 		dataType: 'Json',
 		success: (res) => {
@@ -61,7 +61,7 @@ const ajaxSaveCall = (id, object) => {
 		type: 'POST',
 		data: object,
 		success: (res) => {
-			window.location.assign("http://localhost:3000/playlists/" + res);
+			window.location.assign("/playlists/" + res);
 		},
 		error: (err) => {
 			console.log(err);
