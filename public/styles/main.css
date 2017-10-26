@@ -145,10 +145,24 @@ main {
 #profileUsername {
   font-size: 4.5rem;
 }
-#profilePlaylistContainer {
+.profilePlaylistContainer {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
   max-width: 800px;
   margin: auto;
   margin-top: 40px;
+}
+.profilePlaylistContainer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.profilePlaylistContainer a {
+  color: #343a40;
+}
+.profile-playlist-name {
+  text-decoration: underline;
 }
 .errorText {
   color: red;
@@ -199,6 +213,9 @@ main {
   text-align: center;
   margin: 20px 20px 20px 20px;
 }
+.playlist_title a {
+  color: #343a40;
+}
 .playlist_links {
   margin: 10px;
 }
@@ -248,4 +265,7 @@ main {
   line-height: 2em;
   color: #E0E0E0;
   text-shadow: 2px 2px 8px #343a40, -1px -1px 0 #343a40, 1px -1px 0 #343a40, -1px 1px 0 #343a40, 1px 1px 0 #343a40;
+}
+.playlistProfileTitle {
+  font-size: 1.5em;
 }
