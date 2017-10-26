@@ -15,7 +15,7 @@
 		<main>
 			<div class="container contentContainer" style="display: none;">
 				<h1 class="playlist_title"><%= playlist.title %></h1>
-     <h5 class="playlist_title"> <%= user.username %></h5>
+     <h5 class="playlist_title"><a class="transition" href="/user/profile/<%= user._id %>"><%= user.username %></a></h5>
      <div id="button_flip" class="playlist_title">
       <div>
        <form action="/playlists" method="GET">

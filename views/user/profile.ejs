@@ -16,29 +16,126 @@
 				<h4><%= user.firstName %> <%= user.lastName %></h3>
 			</div>
 		</div>
-		<div id="profilePlaylistContainer" class="row">
+		<div class="row profilePlaylistContainer">
 			<h3><%= user.username %>'s Playlists</h3>
+		</div>
+		<div class="row profilePlaylistContainer">
 			<ul>
+				<h2 class="profile-playlist-name">Comedy</h2>
 				<% user.playlists.forEach((playlist)=>{ %>
-					<li><%= playlist.title %></li>
-					<% if (session.username === user.username){ %>
-						<a href="/playlists/add/<%= playlist._id %>">Edit</a>
-						<a href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
+					<% if (playlist.type === "comedy") { %>
+						<li>
+							<a class="playlistProfileTitle transition" href="/playlists/<%= playlist._id %>"><%= playlist.title %></a><br>
+							<% if (session.username === user.username){ %>
+								<a class="transition" href="/playlists/add/<%= playlist._id %>">Edit</a> ---
+								<a class="transition" href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
+							<% } %>
+						</li>
 					<% } %>
 				<% }) %>
 			</ul>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<ul>
+				<h2 class="profile-playlist-name">Music</h2>
+				<% user.playlists.forEach((playlist)=>{ %>
+					<% if (playlist.type === "music") { %>
+						<li>
+							<a class="playlistProfileTitle transition" href="/playlists/<%= playlist._id %>"><%= playlist.title %></a><br>
+							<% if (session.username === user.username){ %>
+								<a class="transition" href="/playlists/add/<%= playlist._id %>">Edit</a> ---
+								<a class="transition" href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
+							<% } %>
+						</li>
+					<% } %>
+				<% }) %>
+			</ul>
+			<ul>
+				<h2 class="profile-playlist-name">Educational</h2>
+				<% user.playlists.forEach((playlist)=>{ %>
+					<% if (playlist.type === "educational") { %>
+						<li>
+							<a class="playlistProfileTitle transition" href="/playlists/<%= playlist._id %>"><%= playlist.title %></a><br>
+							<% if (session.username === user.username){ %>
+								<a class="transition" href="/playlists/add/<%= playlist._id %>">Edit</a> ---
+								<a class="transition" href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
+							<% } %>
+						</li>
+					<% } %>
+				<% }) %>
+			</ul>
+			</div>
+			<div class="row profilePlaylistContainer">
+			<ul>
+				<h2 class="profile-playlist-name">Cute</h2>
+				<% user.playlists.forEach((playlist)=>{ %>
+					<% if (playlist.type === "cute") { %>
+						<li>
+							<a class="playlistProfileTitle transition" href="/playlists/<%= playlist._id %>"><%= playlist.title %></a><br>
+							<% if (session.username === user.username){ %>
+								<a class="transition" href="/playlists/add/<%= playlist._id %>">Edit</a> ---
+								<a class="transition" href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
+							<% } %>
+						</li>
+					<% } %>
+				<% }) %>
+			</ul>
+			<ul>
+				<h2 class="profile-playlist-name">Bizarre</h2>
+				<% user.playlists.forEach((playlist)=>{ %>
+					<% if (playlist.type === "bizarre") { %>
+						<li>
+							<a class="playlistProfileTitle transition" href="/playlists/<%= playlist._id %>"><%= playlist.title %></a><br>
+							<% if (session.username === user.username){ %>
+								<a class="transition" href="/playlists/add/<%= playlist._id %>">Edit</a> ---
+								<a class="transition" href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
+							<% } %>
+						</li>
+					<% } %>
+				<% }) %>
+			</ul>
+			<ul>
+				<h2 class="profile-playlist-name">Cooking</h2>
+				<% user.playlists.forEach((playlist)=>{ %>
+					<% if (playlist.type === "cooking") { %>
+						<li>
+							<a class="playlistProfileTitle transition" href="/playlists/<%= playlist._id %>"><%= playlist.title %></a><br>
+							<% if (session.username === user.username){ %>
+								<a class="transition" href="/playlists/add/<%= playlist._id %>">Edit</a> ---
+								<a class="transition" href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
+							<% } %>
+						</li>
+					<% } %>
+				<% }) %>
+			</ul>
+			</div>
+			<div class="row profilePlaylistContainer">
+			<ul>
+				<h2 class="profile-playlist-name">Reviews</h2>
+				<% user.playlists.forEach((playlist)=>{ %>
+					<% if (playlist.type === "reviews") { %>
+						<li>
+							<a class="playlistProfileTitle transition" href="/playlists/<%= playlist._id %>"><%= playlist.title %></a><br>
+							<% if (session.username === user.username){ %>
+								<a class="transition" href="/playlists/add/<%= playlist._id %>">Edit</a> ---
+								<a class="transition" href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
+							<% } %>
+						</li>
+					<% } %>
+				<% }) %>
+			</ul>
+			<ul>
+				<h2 class="profile-playlist-name">Documentaries</h2>
+				<% user.playlists.forEach((playlist)=>{ %>
+					<% if (playlist.type === "documentary") { %>
+						<li>
+							<a class="playlistProfileTitle transition" href="/playlists/<%= playlist._id %>"><%= playlist.title %></a><br>
+							<% if (session.username === user.username){ %>
+								<a class="transition" href="/playlists/add/<%= playlist._id %>">Edit</a> ---
+								<a class="transition" href="/playlists/<%= playlist._id %>?_method=DELETE">Delete</a>
+							<% } %>
+						</li>
+					<% } %>
+				<% }) %>
+			</ul>
 		</div>
 	</div>
 	</main>
