@@ -1,6 +1,6 @@
 # The Playlist
 
-An app to browse and create youtube playlists. 
+An app to browse and create youtube playlists. The playlists are independant of youtube and do not require a youtube channel.  In the future we will be adding features and quality of life changes. There are still some bugs that need to be fixed, but for the most part it is fully functioning.
 
 ## Features
 The user can
@@ -26,8 +26,8 @@ We used the youtube API to embed a search function so the user can search throug
 
 ## Wireframes 
 
-home page https://wireframe.cc/wxgzma
-Playlist page https://wireframe.cc/OrUtj4
-Profile page https://wireframe.cc/xJq2Et
-Create page https://wireframe.cc/8zq0vH
-Sign up page https://wireframe.cc/ilNm9P
+* home page https://wireframe.cc/wxgzma
+* Playlist page https://wireframe.cc/OrUtj4
+* Profile page https://wireframe.cc/xJq2Et
+* Create page https://wireframe.cc/8zq0vH
+* Sign up page https://wireframe.cc/ilNm9P
