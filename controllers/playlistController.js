@@ -102,34 +102,34 @@ router.route('/getplaylist/:id')
 
 
 router.route('/:id')
-		.get((req,res)=>{
+	  .get((req,res)=>{
 		playlistDB.findById(req.params.id, (err, playlist)=>{
-		userDB.findOne({'playlists._id': req.params.id}, (err, user)=>{
+			userDB.findOne({'playlists._id': req.params.id}, (err, user)=>{
 				if(err){
 					res.send('Error showing playlist')
 				}else{
 					res.render('playlist/show', {user: user, session: req.session, playlist: playlist})
-				}
-			})
-		})
-	})
-		.delete((req, res)=>{
-	  	playlistDB.findByIdAndRemove(req.params.id, (err, playlist)=>{
-	  		if (err) {
-	  			res.send('there was an error');
-	  		}else {
-	  			userDB.findOne({'playlists._id': req.params.id}, (err, user)=>{
-	  				if (err) {
-	  					res.send('error finding user');
-	  				}else {
-	  					user.playlists.id(req.params.id).remove();
-	  					user.save((err, data)=>{
-	  						res.redirect('/user/profile/' + req.session.userId);
-	  					});
-	  				}
-	  			});
-	  		};
-	  	});
+				};
+			});
+		});
+	  })
+	  .delete((req, res)=>{
+		playlistDB.findByIdAndRemove(req.params.id, (err, playlist)=>{
+			if (err) {
+				res.send('there was an error');
+			}else {
+				userDB.findOne({'playlists._id': req.params.id}, (err, user)=>{
+					if (err) {
+						res.send('error finding user');
+					}else {
+						user.playlists.id(req.params.id).remove();
+							user.save((err, data)=>{
+							res.redirect('/user/profile/' + req.session.userId);
+						});
+					};
+				});
+			};
+		});
 	  });
 
 module.exports = router;

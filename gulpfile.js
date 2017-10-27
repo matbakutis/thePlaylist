@@ -3,7 +3,7 @@ const less = require('gulp-less');
 const minify = require('gulp-minify');
 
 gulp.task('less-css', ()=>{
-	gulp.src('./public/styles/*.less')
+	gulp.src('./style/*.less')
 		.pipe(less())
 		.pipe(gulp.dest('./public/styles/'))
 });

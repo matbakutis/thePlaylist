@@ -234,7 +234,7 @@ main {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  flex: 1 0 10em;
+  flex: 1 0;
   box-shadow: 0 0 30px #343a40;
   overflow: hidden;
   padding: 1em;
@@ -242,7 +242,7 @@ main {
   transition: flex-basis 500ms ease-in-out;
 }
 .category-list .category:hover {
-  flex-basis: 30em;
+  flex-basis: 33%;
 }
 .category-list .category:hover .playlist-list {
   opacity: 1;
